@@ -1,0 +1,253 @@
+
+
+
+//------------------------------------------------------------------------------
+// Forms, Form Inputs, Labels, Field sets, Legends, etc.
+//------------------------------------------------------------------------------
+
+form {
+	display : block;
+	width : 100%;
+	border : none;
+	background-color : #fff;
+	margin : 0;
+	padding : 0;
+	font-size : 1em;
+	line-height : 1;
+}
+fieldset {
+	display          : block;
+	width            : 100%;
+	border           : none;
+	background-color : #fff;
+	margin           : .25rem auto 1.5rem;
+	padding          : 0;
+	font-size        : 1em;
+	line-height      : 1;
+}
+legend {
+	display          : block;
+	width            : 100%;
+	border           : none;
+	background-color : #fff;
+	margin           : 0;
+	padding          : 0;
+	line-height      : 1;
+	font-size : large;
+	font-weight : 600;
+}
+label {
+	font-weight : 400;
+	display : block;
+	width : 100%;
+	line-height : 1;
+	margin : 1rem auto .25rem;
+	cursor : pointer;
+}
+[type='color'], [type='date'], [type='datetime'], [type='search'], [type='tel'],
+[type='datetime-local'], [type='email'], [type='month'], [type='number'],
+[type='password'], [type='text'], [type='time'], [type='url'], [type='week'],
+input:not([type]), textarea {
+	$_this-color : whitesmoke;
+	$_this-bd-color: lightgray;
+	@extend %fix-iOS-tap-highlight;
+	margin      : 0 auto;
+	display     : block;
+	width       : 100%;
+	padding : .5em;
+	vertical-align : middle;
+	background-color : $_this-color;
+	
+	border           : 2px solid $_this-bd-color;
+	color            : #333;
+	border-radius : .25em;
+	transition : $default-transition;
+	outline : 6px solid rgba($primary-color, 0.0);
+	&::placeholder {
+		color: darkgray;
+	}
+	
+	&:hover {
+		background-color : hover-color($_this-color);
+		border-color     : hover-color($_this-bd-color);
+	}
+	&:focus {
+		background-color : focus-color($_this-color);
+		border-color     : $primary-color !important;
+		outline-color    : rgba($primary-color, 0.25);
+		outline-offset   : -2px;
+	}
+	&:active {
+		background-color : active-color($_this-color);
+		border-color     : active-color($_this-bd-color);
+	}
+}
+
+
+//------------------------------------------------------------------------------
+// Buttons and Button-like Components
+//------------------------------------------------------------------------------
+
+button,[type='button'],[type='submit'],[type='reset'],[role='button'],.button {
+	@extend %fix-iOS-tap-highlight;
+	padding : .75em 0;
+	display : block;
+	width : 100%;
+	transition : $default-transition;
+	cursor : pointer;
+	$_this-color: lightgray;
+	background-color : $_this-color;
+	border : 2px solid $_this-color;
+	color: #333;
+	border-radius : .25em;
+	vertical-align : middle;
+	letter-spacing : .5px;
+	transform: translate3d(0,0,0);
+	outline : 6px solid rgba($primary-color, 0.0);
+	@include min-width() {
+		display : inline-block;
+		width : unset;
+		padding : .5em .75em;
+		min-width : 6em;
+	}
+	
+	&:hover {
+		background-color : hover-color($_this-color);
+		border-color : hover-color($_this-color);
+	}
+	&:focus {
+		background-color : focus-color($_this-color);
+		border-color : $primary-color !important;
+		outline-color: rgba($primary-color, 0.25);
+		outline-offset: -2px;
+	}
+	&:active {
+		background-color : active-color($_this-color);
+		border-color     : active-color($_this-color);
+		transform : translate3d(0, 2px, 0);
+	}
+	
+	&.primary {
+		$_this-color     : $primary-color;
+		background-color : $_this-color;
+		border-color : $_this-color;
+		color : white;
+		
+		&:hover {
+			background-color : hover-color($_this-color);
+			border-color     : hover-color($_this-color);
+		}
+		&:focus {
+			background-color : focus-color($_this-color);
+		}
+		&:active {
+			background-color : active-color($_this-color);
+			border-color     : active-color($_this-color);
+		}
+	}
+	&.secondary {
+		$_this-color     : $secondary-color;
+		background-color : $_this-color;
+		border-color     : $_this-color;
+		color            : white;
+		
+		&:hover {
+			background-color : hover-color($_this-color);
+			border-color     : hover-color($_this-color);
+		}
+		&:focus {
+			background-color : focus-color($_this-color);
+		}
+		&:active {
+			background-color : active-color($_this-color);
+			border-color     : active-color($_this-color);
+		}
+	}
+	&.round,&.rounded {
+		border-radius : 2em !important;
+		padding-left : 1em;
+		padding-right : 1em;
+	}
+	&.outline,&.ghost {
+		$_this-color: $secondary-color;
+		background-color : rgba($_this-color,0.0);
+		border-color : $_this-color;
+		color: $_this-color;
+		font-weight : 500;
+		letter-spacing : 1px;
+		
+		&:hover {
+			background-color : rgba($_this-color, 0.1);
+			border-color     : hover-color($_this-color);
+		}
+		&:focus {
+			background-color : rgba($_this-color, 0.2);
+		}
+		&:active {
+			background-color : rgba($_this-color, 0.3);
+			border-color     : active-color($_this-color);
+		}
+	}
+	&.primary.outline,&.outline.primary {
+		$_this-color     : $primary-color;
+		background-color : rgba($_this-color, 0.0);
+		border-color     : $_this-color;
+		color            : $_this-color;
+		font-weight      : 500;
+		letter-spacing   : 1px;
+		
+		&:hover {
+			background-color : rgba($_this-color, 0.1);
+			border-color     : hover-color($_this-color);
+		}
+		&:focus {
+			background-color : rgba($_this-color, 0.2);
+		}
+		&:active {
+			background-color : rgba($_this-color, 0.3);
+			border-color     : active-color($_this-color);
+		}
+	}
+}
+[type='submit'] {
+	@extend .primary;
+	margin : 1rem auto;
+}
+
+//------------------------------------------------------------------------------
+// Component-specific Containing Lists
+//------------------------------------------------------------------------------
+
+.button-list,.buttons-list,ul.buttons {
+	@extend %list-reset;
+	
+	button,[type='button'],[type='submit'],[type='reset'],[role='button'],.button {
+		margin : 0 !important;
+	}
+	
+	li {
+		margin : 0 auto 1em;
+		display : block;
+	}
+	
+	margin : 2em auto !important;
+	@include min-width() {
+		gap: 1em;
+		padding : 0;
+		margin : 0 0 2rem 0 !important;
+		li {
+			margin : 0;
+			display : inline-block;
+		}
+	}
+	
+}
+.alternate-links {
+	@extend %list-reset;
+	gap: 0;
+	margin : 1rem auto;
+	li {
+		margin : 0;
+		padding : 0;
+	}
+}

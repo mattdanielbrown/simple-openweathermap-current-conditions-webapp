@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simple Current Weather Conditions Webapp | Form Inputs</title>
+  <meta name="description" content="Simple Weather Conditions Webapp | Form Inputs">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/main.scss">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Skip-to-main Link 																										 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<a href="#main-content" class="skip-to-main-content-link" >Skip to main content</a>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Site/Page Header 																										 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<header>
+		<nav id="primary-navigation" role="navigation">
+			<button id="mobile-navigation-control" aria-expanded="false" aria-controls="navigation-menu">
+				<span class="mobile-navigation-control-text-content">Menu</span>
+			</button>
+			<ul id="navigation-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="buttons.html">Buttons</a></li>
+				<li><a href="form-inputs.html" aria-current="page">Form Inputs</a></li>
+				<li><a href="#">Pricing</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Main Page Content  																									 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<main id="main-content">
+		<section class="page-header">
+			<div class="page-header-content-wrapper">
+				<h1>
+					Example.com
+					<small>Form Inputs</small>
+				</h1>
+			</div>
+		</section>
+		<section>
+			<h2>Components</h2>
+			<h3>Form Inputs</h3>
+			<form action="">
+				<fieldset>
+					<legend>Account Details</legend>
+					
+					<label for="email-address-input">Email address</label>
+					<input type="email" name="email-address-input" placeholder="username@example.com" id="email-address-input" maxlength="200" inputmode="email">
+				
+					<label for="password-input">Password</label>
+					<input type="password" name="password-input" id="password-input" placeholder="•••••••••" maxlength="100">
+				</fieldset>
+				
+				<input type="submit" value="Sign in">
+				
+				<ul class="alternate-links">
+					<li><p>Forgot your password? <a href="#">Reset it.</a></p></li>
+					<li><p>Don't have an account yet? <a href="#">Create one now.</a></p></li>
+				</ul>
+				
+			</form>
+		</section>
+	</main>
+	
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<!-- Site/Page Footer 																										 -->
+	<!-- ————————————————————————————————————————————————————————————————————— -->
+	<footer>
+		<p>Copyright &copy; 2023. All Rights Reserved.</p>
+	</footer>
+	
+	<!-- ===================================================================== -->
+	<!-- Javascript	 																								 					 -->
+	<!-- ===================================================================== -->
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+
+
+//------------------------------------------------------------------------------
+// Main, base elements layout
+//------------------------------------------------------------------------------
+
+.container,section:not(:first-of-type),article,.page-header-content-wrapper {
+	@extend %container;
+}
+
+html {
+
+}
+html,body {
+	margin : 0 !important;
+	padding : 0 !important;
+	width : 100vw;
+	height : 100%;
+	max-width : 100vw;
+	min-width : 300px;
+	background-color : whitesmoke;
+}
+body {
+	min-width : 100vw;
+	min-height : 100vh;
+	display : flex;
+	flex-direction : column;
+	justify-content : space-between;
+	position : relative;
+	& > footer:last-of-type {
+		width            : 100%;
+		margin           : 0;
+		padding          : 2em 0;
+		background-color : whitesmoke;
+		vertical-align   : middle;
+		text-align       : center;
+		z-index : 2;
+		position : relative;
+		p {
+			font-size   : small;
+			text-align  : center;
+			line-height : 1;
+			margin      : 0 auto;
+			padding     : 0;
+			font-weight : 500;
+			color       : gray;
+		}
+	}
+	
+}
+main {
+	flex-grow : 1;
+	margin : 0;
+	width : 100%;
+	padding :  0 0 2rem 0;
+	background-color : #fff;
+	& > section {
+		padding : 2rem 0;
+		margin-bottom : 2rem;
+		
+	}
+}
+.page-header {
+	background-color : whitesmoke;
+	margin : 0 !important;
+	width : 100% !important;
+	padding : 2em 0;
+	h1 {
+		margin-top : 0 !important;
+	}
+	@media screen and (max-width: 559px) {
+		margin-top  : 3.5em !important;
+		padding-top : 3.5em !important;
+	}
+}
+body>header:first-of-type {
+	padding : 0;
+	overflow : hidden;
+	@include max-width(560px) {
+		// position : absolute;
+		// width : 100vw;
+		// height : 100vh;
+		// top : 0;
+		// left : 0;
+		// right : 0;
+		// bottom : 0;
+		overflow : visible;
+		padding-top : 3.25em !important;
+		// height : 3.5em;
+		height : auto;
+	}
+	@include min-width(560px) {
+		padding-top : 0 !important;
+		height : unset;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Navigation Bar and its components
+//------------------------------------------------------------------------------
+
+nav {
+	background-color : $navigation-color;
+	color            : white;
+	display          : block;
+	margin           : 0;
+	padding          : 0;
+	width            : 100vw;
+	ul {
+		background-color : $navigation-color;
+		color: inherit;
+		margin : 0;
+		padding : 0;
+		width : 100%;
+		display : flex;
+		flex-direction : column;
+		justify-content : center;
+		align-content : stretch;
+		align-items : stretch;
+		text-align : center;
+		line-height : 1;
+		position : absolute;
+		top : 0;
+		left : 0;
+		right : 0;
+		bottom : 0;
+		z-index : 10;
+		gap: 2em;
+		li {
+			display : block;
+			margin : 0;
+			padding : 0;
+			width : 100%;
+			line-height : 1;
+			background-color : inherit;
+			color: inherit;
+			z-index : 11;
+			a,a:any-link {
+				display          : block;
+				margin           : 0 auto;
+				width            : 75%;
+				line-height      : 1;
+				background-color : inherit;
+				color            : inherit;
+				text-align : center;
+				border-radius : 2em;
+				padding : 1em 0;
+				font-size : x-large;
+				text-decoration : none !important;
+				border : 2px solid $navigation-color;
+				outline : 6px solid rgba($primary-color,0.0);
+				outline-offset: -2px;
+				z-index : 12;
+				$_this-color: $navigation-color;
+				&:hover {
+					background-color : hover-color($_this-color);
+					border-color : hover-color($_this-color);
+					text-decoration : none !important;
+					color: white;
+				}
+				&:focus {
+					background-color : focus-color($_this-color);
+					text-decoration : none !important;
+					color : white;
+					border-color : $primary-color !important;
+					outline-color: rgba($primary-color,0.25);
+				}
+				&:active {
+					background-color : active-color($_this-color);
+					border-color : active-color($_this-color);
+					text-decoration : none !important;
+					color : white;
+				}
+			}
+		}
+	}
+	
+	@media screen and (max-width : 559px) {
+		transition : all 200ms;
+		position : fixed;
+		left : 0;
+		right : 0;
+		top : 0;
+		z-index : 2;
+		height : 3.5em;
+		ul {
+			transition : none;
+			transform : translate3d(0, -100vh, 0);
+			opacity : 0;
+			transition : all 200ms;
+		}
+		
+		&.active {
+			z-index          : 5;
+			position         : fixed;
+			width            : 100vw;
+			height           : 100vh;
+			top              : 0;
+			left             : 0;
+			right            : 0;
+			bottom           : 0;
+			ul {
+				transform : translate3d(0, 0, 0);
+				opacity   : 1;
+			}
+		}
+	}
+}
+
+#navigation-menu {
+	background-color : $navigation-color;
+	
+	@include min-width(560px) {
+		display          : flex;
+		flex-direction   : row;
+		justify-content  : flex-end;
+		width            : 90%;
+		max-width        : 70ch;
+		margin           : 0 auto;
+		gap              : 0;
+		background-color : $navigation-color;
+		position         : relative;
+		li {
+			background-color : $navigation-color;
+			display          : inline-block;
+			width            : unset;
+			margin           : 0;
+			padding          : 0;
+			
+			a, a:any-link {
+				width         : unset;
+				padding       : 1em;
+				font-size     : 1em;
+				margin        : 0;
+				text-align    : center;
+				line-height   : 1;
+				display       : inline-block;
+				border-radius : 0;
+			}
+		}
+	}
+}
+
+[aria-current='page'] {
+	background-color : darken($navigation-color, 5%) !important;
+	border-color : darken($navigation-color, 5%) !important;
+	color: rgba(white,0.125) !important;
+	cursor : not-allowed;
+	pointer-events: none;
+}
+
+#mobile-navigation-control {
+	font-size : 1.25em;
+	position : absolute;
+	z-index : 15;
+	top : .25em;
+	right : 1em;
+	width : unset;
+	display : block;
+	line-height : 1;
+	padding : .5em 1em;
+	border-radius : 2em;
+	
+	&[aria-expanded='true'] {
+		background-color : tomato;
+		color: white;
+		border-color : tomato;
+	}
+	
+	@include min-width(560px) {
+		display : none;
+	}
+}
+
+@include min-width(560px) {
+	nav {
+		position : relative;
+		top: unset;
+		left : unset;
+		right : unset;
+		bottom : unset;
+		display : block;
+		height : unset;
+	}
+}
+
+//------------------------------------------------------------------------------
+// Skip-to-main-content link
+//------------------------------------------------------------------------------
+
+.skip-to-main-content-link {
+	position : absolute;
+	text-decoration : none;
+	left : 1.5em;
+	top : -2.5em;
+	font-size : 1em;
+	padding : .5em;
+	background-color : $primary-color;
+	color: white !important;
+	font-weight : 600;
+	text-align : center;
+	cursor : pointer;
+	transition : all 120ms;
+	border-bottom-right-radius: .25em;
+	border-bottom-left-radius: .25em;
+	&:focus {
+		top : 0;
+	}
+}
+
+/** @IMPORTANT : This is the `SKIP TO MAIN CONTENT` popup option for navigation with TAB key. **/
+[tabindex='-1']:focus:not(:focus-visible) { outline : 0 !important; }

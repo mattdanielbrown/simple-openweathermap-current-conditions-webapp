@@ -1,0 +1,45 @@
+@mixin min-width($size:560px) {
+	@media screen and (min-width : $size) {
+		@content;
+	}
+}
+
+@mixin larger-than($size:560px) {
+	@media screen and (min-width : $size) {
+		@content;
+	}
+}
+
+@mixin after($size:560px) {
+	@media screen and (min-width : $size) {
+		@content;
+	}
+}
+
+@mixin max-width($size:560px) {
+	$_size: ( ($size) - (1px) );
+	@media screen and (min-width : $_size) {
+		@content;
+	}
+}
+
+@mixin smaller-than($size:560px) {
+	$_size : (($size) - (1px));
+	@media screen and (min-width : $_size) {
+		@content;
+	}
+}
+
+@mixin before($size:560px) {
+	$_size : (($size) - (1px));
+	@media screen and (min-width : $_size) {
+		@content;
+	}
+}
+
+@mixin up-until($size:560px) {
+	$_size : (($size) - (1px));
+	@media screen and (min-width : $_size) {
+		@content;
+	}
+}

@@ -1,0 +1,12 @@
+
+@function hover-color($color:$primary-color) {
+	@return darken($color, 5%);
+}
+
+@function focus-color($color:$primary-color) {
+	@return darken($color, 10%);
+}
+
+@function active-color($color:$primary-color) {
+	@return darken($color, 15%);
+}
